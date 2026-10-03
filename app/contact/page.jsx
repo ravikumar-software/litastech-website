@@ -28,43 +28,40 @@ export default function ContactPage() {
     setLoading(true);
     setStatus("");
 
-    ```
-try {
-  const response = await fetch("/api/contact", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-  const data = await response.json();
+      const data = await response.json();
 
-  if (response.ok) {
-    setStatus("success");
-    setFormData({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: "",
-    });
-  } else {
-    setStatus("error");
-  }
-} catch (error) {
-  console.error(error);
-  setStatus("error");
-} finally {
-  setLoading(false);
-}
-```;
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      ```
       {/* ================= HEADER ================= */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
